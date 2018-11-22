@@ -1,0 +1,60 @@
+Starting GatewayApplicationTests on sebastian-Precision-5520 with PID 31223 (started by root in /home/sebastian/Documents/favmovie/gateway)
+No active profile set, falling back to default profiles: default
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+Initializing ExecutorService 'applicationTaskExecutor'
+
+
+Using generated security password: f7580669-9101-47ca-9e30-5ef2cb10d655
+
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@652d54a2, org.springframework.security.web.context.SecurityContextPersistenceFilter@3fca468c, org.springframework.security.web.header.HeaderWriterFilter@426c08e2, org.springframework.web.filter.CorsFilter@2de2abc6, org.springframework.security.web.csrf.CsrfFilter@7737f729, org.springframework.security.web.authentication.logout.LogoutFilter@4e2a18ea, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@61b80bcf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7682cbfb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@26ca3552, org.springframework.security.web.session.SessionManagementFilter@655b33d8, org.springframework.security.web.access.ExceptionTranslationFilter@5d2aad9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@50ec9bc4]
+Context refreshed
+Found 1 custom documentation plugin(s)
+Scanning for api listing references
+Started GatewayApplicationTests in 3.446 seconds (JVM running for 4.097)
+Shutting down ExecutorService 'applicationTaskExecutor'
+Starting GatewayApplicationTests on sebastian-Precision-5520 with PID 32727 (started by root in /home/sebastian/Documents/favmovie/gateway)
+No active profile set, falling back to default profiles: default
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+Initializing ExecutorService 'applicationTaskExecutor'
+
+
+Using generated security password: c9306df2-81d9-432d-bf24-15bcc8f52c0a
+
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2de2abc6, org.springframework.security.web.context.SecurityContextPersistenceFilter@333775e, org.springframework.security.web.header.HeaderWriterFilter@6645f909, org.springframework.web.filter.CorsFilter@26ca3552, org.springframework.security.web.csrf.CsrfFilter@796555f5, org.springframework.security.web.authentication.logout.LogoutFilter@ae74f04, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@166cfb39, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@17d5468a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2b73c28a, org.springframework.security.web.session.SessionManagementFilter@524605e2, org.springframework.security.web.access.ExceptionTranslationFilter@7babe4d2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@177b8a9d]
+Context refreshed
+Found 1 custom documentation plugin(s)
+Scanning for api listing references
+Started GatewayApplicationTests in 3.379 seconds (JVM running for 4.027)
+Shutting down ExecutorService 'applicationTaskExecutor'
+Starting GatewayApplicationTests on sebastian-Precision-5520 with PID 1998 (started by root in /home/sebastian/Documents/favmovie/gateway)
+No active profile set, falling back to default profiles: default
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+Initializing ExecutorService 'applicationTaskExecutor'
+
+
+Using generated security password: 1ee3a5fd-247f-4fed-813f-90c02a8805ca
+
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2de2abc6, org.springframework.security.web.context.SecurityContextPersistenceFilter@333775e, org.springframework.security.web.header.HeaderWriterFilter@6645f909, org.springframework.web.filter.CorsFilter@26ca3552, org.springframework.security.web.csrf.CsrfFilter@796555f5, org.springframework.security.web.authentication.logout.LogoutFilter@ae74f04, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@166cfb39, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@17d5468a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2b73c28a, org.springframework.security.web.session.SessionManagementFilter@524605e2, org.springframework.security.web.access.ExceptionTranslationFilter@7babe4d2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@177b8a9d]
+Context refreshed
+Found 1 custom documentation plugin(s)
+Scanning for api listing references
+Started GatewayApplicationTests in 3.391 seconds (JVM running for 4.057)
+Shutting down ExecutorService 'applicationTaskExecutor'
+Starting GatewayApplicationTests on sebastian-Precision-5520 with PID 3684 (started by root in /home/sebastian/Documents/favmovie/gateway)
+No active profile set, falling back to default profiles: default
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+Initializing ExecutorService 'applicationTaskExecutor'
+
+
+Using generated security password: 1247786c-7337-409d-86ea-822e35cee451
+
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@69c79f65, org.springframework.security.web.context.SecurityContextPersistenceFilter@3a04d812, org.springframework.security.web.header.HeaderWriterFilter@693f3cd3, org.springframework.web.filter.CorsFilter@330d711c, org.springframework.security.web.csrf.CsrfFilter@43152ffa, org.springframework.security.web.authentication.logout.LogoutFilter@68638b93, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@730a28a6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c9e429b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@10e99848, org.springframework.security.web.session.SessionManagementFilter@17295474, org.springframework.security.web.access.ExceptionTranslationFilter@759085dd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6d48562c]
+Context refreshed
+Found 1 custom documentation plugin(s)
+Scanning for api listing references
+Started GatewayApplicationTests in 3.421 seconds (JVM running for 4.049)
+Shutting down ExecutorService 'applicationTaskExecutor'

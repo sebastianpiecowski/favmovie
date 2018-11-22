@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/auth.iml" filepath="$PROJECT_DIR$/.idea/modules/auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/auth_main.iml" filepath="$PROJECT_DIR$/.idea/modules/auth_main.iml" group="auth" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/auth_test.iml" filepath="$PROJECT_DIR$/.idea/modules/auth_test.iml" group="auth" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common.iml" filepath="$PROJECT_DIR$/.idea/modules/common.iml" group="common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common_main.iml" filepath="$PROJECT_DIR$/.idea/modules/common_main.iml" group="common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common_test.iml" filepath="$PROJECT_DIR$/.idea/modules/common_test.iml" group="common" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gateway_main.iml" filepath="$PROJECT_DIR$/.idea/modules/gateway_main.iml" group="gateway" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gateway_test.iml" filepath="$PROJECT_DIR$/.idea/modules/gateway_test.iml" group="gateway" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/recommender.iml" filepath="$PROJECT_DIR$/.idea/modules/recommender.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/recommender_main.iml" filepath="$PROJECT_DIR$/.idea/modules/recommender_main.iml" group="recommender" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/recommender_test.iml" filepath="$PROJECT_DIR$/.idea/modules/recommender_test.iml" group="recommender" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,60 @@
+version: '3.7'
+
+services:
+  mongo:
+    image: mongo:latest
+    command: --bind_ip_all
+    volumes:
+    - ./db:/data/db
+    ports:
+    - 27017:27017
+
+  static:
+    image: nginx:1.15
+    ports:
+      - 8802:80
+    volumes:
+      - ./exports/:/usr/share/nginx/html/
+
+  auth:
+    build:
+      context: auth
+      dockerfile: Dockerfile
+    image: favmovie/auth
+    volumes:
+      - ./logs/:/opt/javaSrv/logs
+      - ./exports/:/opt/exports
+    ports:
+      - 8001:8000
+      - 8801:8080
+    depends_on:
+      - mongo
+
+  gateway:
+    build:
+      context: gateway
+      dockerfile: Dockerfile
+    image: favmovie/gateway
+    ports:
+      - 8800:8080
+      - 8000:8000
+    volumes:
+      - ./logs/:/opt/javaSrv/logs
+      - ./exports/:/opt/exports
+
+  recommender:
+    build:
+      context: gateway
+      dockerfile: Dockerfile
+    image: favmovie/gateway
+    ports:
+    - 8803:8080
+    - 8003:8000
+    volumes:
+    - ./logs/:/opt/javaSrv/logs
+    - ./exports/:/opt/exports
+
+  redis:
+    image: redis
+    volumes:
+      - ./redis:/data

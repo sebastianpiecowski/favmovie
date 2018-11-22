@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="recommender" external.linked.project.path="$MODULE_DIR$/../../recommender" external.root.project.path="$MODULE_DIR$/../../recommender" external.system.id="GRADLE" external.system.module.group="favmovie" external.system.module.version="0.0.1" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../recommender">
+      <excludeFolder url="file://$MODULE_DIR$/../../recommender/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../recommender/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../recommender/out" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

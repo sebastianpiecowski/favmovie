@@ -1,0 +1,26 @@
+Tomcat initialized with port(s): 8080 (http)
+Starting service [Tomcat]
+Starting Servlet Engine: Apache Tomcat/9.0.12
+The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 3019 ms
+Mapping filter: 'characterEncodingFilter' to: [/*]
+Mapping filter: 'webMvcMetricsFilter' to: [/*]
+Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+Mapping filter: 'formContentFilter' to: [/*]
+Mapping filter: 'requestContextFilter' to: [/*]
+Mapping filter: 'springSecurityFilterChain' to: [/*]
+Mapping filter: 'httpTraceFilter' to: [/*]
+Servlet dispatcherServlet mapped to [/]
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+Initializing ExecutorService 'applicationTaskExecutor'
+
+
+Using generated security password: 2326fdbd-214d-4fc1-971e-be8678523226
+
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@167279d1, org.springframework.security.web.context.SecurityContextPersistenceFilter@58e85c6f, org.springframework.security.web.header.HeaderWriterFilter@6f89292e, org.springframework.web.filter.CorsFilter@138caeca, org.springframework.security.web.csrf.CsrfFilter@2e2f720, org.springframework.security.web.authentication.logout.LogoutFilter@598260a6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6ac0b715, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3bec2275, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4d96250, org.springframework.security.web.session.SessionManagementFilter@4ab550d5, org.springframework.security.web.access.ExceptionTranslationFilter@6a0cbc6f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4248e66b]
+Context refreshed
+Found 1 custom documentation plugin(s)
+Scanning for api listing references
+Tomcat started on port(s): 8080 (http) with context path ''
