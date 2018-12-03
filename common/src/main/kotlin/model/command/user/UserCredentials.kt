@@ -1,4 +1,4 @@
-package model.api.user
+package model.command.user
 
 import com.fasterxml.jackson.annotation.JsonProperty
 

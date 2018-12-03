@@ -9,7 +9,6 @@ fun okhttp3.ResponseBody.deserialize(): ApiErrorModel {
     return jacksonObjectMapper().readValue(this.string(), ApiErrorModel::class.java)
 }
 
-
 typealias ValidateCallback = ((ex: Exception) -> Unit)?
 
 fun <T> Response<T>.validate(callback: ValidateCallback = null): T {

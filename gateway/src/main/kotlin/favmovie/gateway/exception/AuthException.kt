@@ -1,4 +1,4 @@
-package favmovie.gateway.model
+package favmovie.gateway.exception
 
 import model.ApiErrorModel
 

@@ -1,10 +1,11 @@
 package favmovie.gateway.controller
 
 import favmovie.gateway.AuthService
-import favmovie.gateway.model.AuthException
+import favmovie.gateway.exception.AuthException
 import favmovie.gateway.model.LoginUserCommand
 import io.swagger.annotations.ApiParam
 import model.CreatedIdModel
+import model.api.user.ApiUserModel
 import model.command.user.CreateUserCommand
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpHeaders
@@ -26,8 +27,8 @@ class AuthController @Autowired constructor(
 
     @GetMapping
     fun getLoggedUser(@RequestHeader(value = "Authorization") authToken: String
-    ): ResponseEntity<String> {
-        val response = authService.test(authToken, ":)").execute().validate()
+    ): ResponseEntity<ApiUserModel> {
+        val response = authService.getLoggedUser(authToken).execute().validate()
         return ResponseEntity.ok().body(response)
     }
 

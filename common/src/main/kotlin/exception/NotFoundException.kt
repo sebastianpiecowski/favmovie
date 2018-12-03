@@ -2,4 +2,4 @@ package exception
 
 import java.lang.Exception
 
-class NotFoundException(val msg: String): Exception("Not")
+class NotFoundException(id: String): Exception("Resource with $id not found")

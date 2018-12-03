@@ -6,7 +6,7 @@ import exception.NotFoundException
 import favmovie.auth.repository.UserRepository
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
-import model.api.user.UserCredentials
+import model.command.user.UserCredentials
 import org.slf4j.MDC
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken

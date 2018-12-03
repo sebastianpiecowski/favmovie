@@ -1,16 +1,20 @@
-clean:
+ clean:
 	cd gateway && ./gradlew clean
 	cd auth && ./gradlew clean
 	cd recommender && ./gradlew clean
+	cd movie && ./gradlew clean
 
 gate:
-	cd gateway && ./gradlew build
+	cd gateway && ./gradlew build -x test
 
 auth:
-	cd auth && ./gradlew build
+	cd auth && ./gradlew build -x test
 
 recommender:
-	cd recommender && ./gradlew build
+	cd recommender && ./gradlew build -x test
+
+movie:
+	cd movie && ./gradlew build -x test
 
 # Wszystkie taski budowania pojedynczego modułu zostały zastąpione tym jednym.
 # Teraz można to wywołać poprzez
@@ -44,7 +48,7 @@ run:
 stop:
 	docker-compose stop
 
-build: auth gate recommender
+build: auth gate recommender movie
 
 all: clean build run
 

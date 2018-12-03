@@ -1,5 +1,7 @@
 package favmovie.gateway
 
+import favmovie.gateway.util.RequestLoggingInterceptor
+import favmovie.gateway.apiconfig.api.MovieService
 import favmovie.gateway.apiconfig.api.RecommenderService
 import okhttp3.OkHttpClient
 import org.springframework.beans.factory.annotation.Qualifier
@@ -18,6 +20,9 @@ class RetrofitConfig {
 
     @RequestScopedBean
     fun provideRecommenderService(@Qualifier("recommenderApi") retrofit: Retrofit): RecommenderService = retrofit.create(RecommenderService::class.java)
+
+    @RequestScopedBean
+    fun provideMovieService(@Qualifier("movieApi") retrofit: Retrofit): MovieService = retrofit.create(MovieService::class.java)
 
     @Bean("authApi")
     fun provideAuthRetrofit(converter: JacksonConverterFactory, @Qualifier("authClient") okHttpClient: OkHttpClient): Retrofit {
@@ -47,6 +52,16 @@ class RetrofitConfig {
                 .build()
     }
 
+    @Bean("movieApi")
+    fun provideMovieRetrofit(converter: JacksonConverterFactory,
+                             scalarsConverter: ScalarsConverterFactory, @Qualifier("authClient") okHttpClient: OkHttpClient): Retrofit {
+        return Retrofit.Builder()
+                .client(okHttpClient)
+                .addConverterFactory(converter)
+                .addConverterFactory(scalarsConverter)
+                .baseUrl("http://movie:8080/")
+                .build()
+    }
 
 
     @Bean

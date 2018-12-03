@@ -4,13 +4,11 @@ import favmovie.auth.exception.UserAlreadyExistException
 import favmovie.auth.model.User
 import model.command.user.CreateUserCommand
 import favmovie.auth.repository.UserRepository
+import favmovie.auth.service.UserService
 import model.CreatedIdModel
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import util.LoggingUtil
 import javax.validation.Valid
 
@@ -18,7 +16,8 @@ import javax.validation.Valid
 @RequestMapping("/")
 class AuthController @Autowired constructor(
         val userRepository: UserRepository,
-        val bCryptPasswordEncoder: BCryptPasswordEncoder
+        val bCryptPasswordEncoder: BCryptPasswordEncoder,
+        val userService: UserService
 ) {
     private val logger = LoggingUtil.getLogger(javaClass)
 
@@ -32,5 +31,11 @@ class AuthController @Autowired constructor(
             return CreatedIdModel(user.id.toHexString())
         }
         throw UserAlreadyExistException(command.email)
+    }
+
+    @GetMapping("users")
+    fun getLoggedUser(@RequestHeader("Authorization") authToken: String
+    ): User {
+        return userService.getLoggedUser()
     }
 }

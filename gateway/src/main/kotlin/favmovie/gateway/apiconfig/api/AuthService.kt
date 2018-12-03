@@ -3,17 +3,17 @@ package favmovie.gateway
 import favmovie.gateway.model.HealthCheckResponse
 import favmovie.gateway.model.LoginUserCommand
 import model.CreatedIdModel
+import model.api.user.ApiUserModel
 import model.command.user.CreateUserCommand
 import retrofit2.Call
 import retrofit2.http.*
 
 interface AuthService {
 
-    @GET("")
-    fun test(
-            @Header(value = "Authorization") authToken: String,
-            @Path("login") login: String
-    ): Call<String>
+    @GET("users")
+    fun getLoggedUser(
+            @Header(value = "Authorization") authToken: String
+    ): Call<ApiUserModel>
 
     @GET("actuator/health")
     fun healthCheck() : Call<HealthCheckResponse>

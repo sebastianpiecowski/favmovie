@@ -1,4 +1,4 @@
-package favmovie.gateway
+package favmovie.gateway.util
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import okhttp3.*

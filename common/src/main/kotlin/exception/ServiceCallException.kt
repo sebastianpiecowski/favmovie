@@ -2,4 +2,4 @@ package exception
 
 import model.ApiErrorModel
 
-class ServiceCallException(val e: ApiErrorModel) : Exception()
+class ServiceCallException(val error: ApiErrorModel) : Exception()
