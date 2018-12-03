@@ -11,6 +11,9 @@
       <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/gateway_main.iml" filepath="$PROJECT_DIR$/.idea/modules/gateway_main.iml" group="gateway" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/gateway_test.iml" filepath="$PROJECT_DIR$/.idea/modules/gateway_test.iml" group="gateway" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/movie.iml" filepath="$PROJECT_DIR$/.idea/modules/movie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/movie_main.iml" filepath="$PROJECT_DIR$/.idea/modules/movie_main.iml" group="movie" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/movie_test.iml" filepath="$PROJECT_DIR$/.idea/modules/movie_test.iml" group="movie" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/recommender.iml" filepath="$PROJECT_DIR$/.idea/modules/recommender.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/recommender_main.iml" filepath="$PROJECT_DIR$/.idea/modules/recommender_main.iml" group="recommender" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/recommender_test.iml" filepath="$PROJECT_DIR$/.idea/modules/recommender_test.iml" group="recommender" />

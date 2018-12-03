@@ -6,8 +6,12 @@
       <module name="auth_test" target="1.8" />
       <module name="common_main" target="1.8" />
       <module name="common_test" target="1.8" />
+      <module name="fetcher_main" target="1.8" />
+      <module name="fetcher_test" target="1.8" />
       <module name="gateway_main" target="1.8" />
       <module name="gateway_test" target="1.8" />
+      <module name="movie_main" target="1.8" />
+      <module name="movie_test" target="1.8" />
       <module name="recommender_main" target="1.8" />
       <module name="recommender_test" target="1.8" />
     </bytecodeTargetLevel>

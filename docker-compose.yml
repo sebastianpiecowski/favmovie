@@ -9,12 +9,12 @@ services:
     ports:
     - 27017:27017
 
-  static:
-    image: nginx:1.15
-    ports:
-      - 8802:80
-    volumes:
-      - ./exports/:/usr/share/nginx/html/
+#  static:
+#    image: nginx:1.15
+#    ports:
+#      - 8802:80
+#    volumes:
+#      - ./exports/:/usr/share/nginx/html/
 
   auth:
     build:
@@ -44,9 +44,9 @@ services:
 
   recommender:
     build:
-      context: gateway
+      context: recommender
       dockerfile: Dockerfile
-    image: favmovie/gateway
+    image: favmovie/recommender
     ports:
     - 8803:8080
     - 8003:8000
@@ -54,7 +54,17 @@ services:
     - ./logs/:/opt/javaSrv/logs
     - ./exports/:/opt/exports
 
-  redis:
-    image: redis
+  movie:
+    build:
+      context: movie
+      dockerfile: Dockerfile
+    image: favmovie/movie
+    ports:
+    - 8804:8080
+    - 8004:8000
     volumes:
-      - ./redis:/data
+    - ./logs/:/opt/javaSrv/logs
+    - ./exports/:/opt/exports
+    depends_on:
+      - mongo
+
