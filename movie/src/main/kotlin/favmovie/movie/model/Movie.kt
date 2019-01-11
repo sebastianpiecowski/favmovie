@@ -55,19 +55,17 @@ data class Movie(
             return mapOf(
                     "title" to movie?.title,
                     "adult" to movie?.adult,
-                    "originalTitle" to movie?.originalTitle,
-                    "genres" to movie?.genres?.map { it.id.toString() }?.toSet(),
-                    "originalLanguage" to movie?.originalLanguage,
+                    "genres" to movie?.genres?.map { it.name }?.toSet(),
                     "popularity" to movie?.popularity,
                     "releaseYear" to if(!movie?.releaseYear.isNullOrBlank()) {
                         Timestamp.valueOf(LocalDate.of(movie?.releaseYear!!.toInt(), 1, 1).atStartOfDay())
                     } else {
                         null
                     },
-                    "productionCompanies" to movie?.productionCompanies?.map { it.id.toString() }?.toSet(),
+                    "productionCompanies" to movie?.productionCompanies?.map { it.name }?.toSet(),
                     "productionCountries" to movie?.productionCountries?.map { it.isoCode }?.toSet(),
-                    "cast" to movie?.cast?.map { it.id.toString() }?.toSet()?.take(10),
-                    "crew" to movie?.crew?.map { it.id.toString() }?.toSet()?.take(5)
+                    "cast" to movie?.cast?.map { it.name }?.toSet()?.take(8),
+                    "crew" to movie?.crew?.map { it.name }?.toSet()?.take(4)
             )
         }
     }

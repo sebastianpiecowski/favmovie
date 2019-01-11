@@ -1,5 +1,7 @@
 package favmovie.movie.service
 
+import com.recombee.api_client.RecombeeClient
+import com.recombee.api_client.api_requests.SetItemValues
 import exception.ServiceException
 import favmovie.movie.model.Movie
 import favmovie.movie.repository.MovieRepository
@@ -20,6 +22,7 @@ class FetchService @Autowired constructor(
         mongoTemplate: MongoTemplate,
         val movieRepository: MovieRepository
 ){
+    private val recombeeClient = RecombeeClient("favmovie", constraints.apiKeyRecombee)
     private val db: TmdbMovies = try {
         TmdbApi(constraints.apiKeyTmdb).movies
     } catch (ex: MovieDbException) {
@@ -28,13 +31,13 @@ class FetchService @Autowired constructor(
     private val lastFetchedMovie = mongoTemplate.find(Query().skip(movieRepository.count()-1).limit(1),
             Movie::class.java)
     private var increment = if(lastFetchedMovie.isEmpty()) {
-        1
+        0
     } else {
         lastFetchedMovie.first().movieDbId + 1
     }
 
     @Scheduled(fixedDelay = 300)
-    fun fetchMovies() {
+    fun fetchAndSetMovies() {
             var movie: MovieDb? = null
             try {
                 movie = db.getMovie(increment, "pl", TmdbMovies.MovieMethod.credits)
@@ -43,8 +46,19 @@ class FetchService @Autowired constructor(
             } finally {
                 increment++
             }
-            if (movie != null) {
-                movieRepository.save(Movie.create(movie))
+            if (movie != null && !movie.posterPath.isNullOrEmpty()
+                    && !movie.releaseDate.isNullOrEmpty() && !movie.overview.isNullOrEmpty()
+            && !movie.productionCompanies.isEmpty() && !movie.productionCountries.isEmpty()
+            && !movie.cast.isEmpty() && !movie.crew.isEmpty() && !movie.genres.isEmpty()) {
+                val myMovie = Movie.create(movie)
+                movieRepository.save(myMovie)
+                val propertiesMap = Movie.getMapOfProperities(myMovie)
+                try {
+                    val response = recombeeClient.send(SetItemValues(myMovie.id.toHexString(), propertiesMap)
+                            .setCascadeCreate(true))
+                } catch (ex: Exception) {
+                    //
+                }
             }
     }
 

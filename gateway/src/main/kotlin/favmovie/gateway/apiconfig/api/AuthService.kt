@@ -1,6 +1,5 @@
 package favmovie.gateway
 
-import favmovie.gateway.model.HealthCheckResponse
 import favmovie.gateway.model.LoginUserCommand
 import model.CreatedIdModel
 import model.api.user.ApiUserModel
@@ -14,9 +13,6 @@ interface AuthService {
     fun getLoggedUser(
             @Header(value = "Authorization") authToken: String
     ): Call<ApiUserModel>
-
-    @GET("actuator/health")
-    fun healthCheck() : Call<HealthCheckResponse>
 
     @POST("users")
     fun createUser(

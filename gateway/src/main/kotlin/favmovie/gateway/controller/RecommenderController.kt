@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*
 import util.validate
 
 @RestController
-@RequestMapping("/command/recommender")
+@RequestMapping("recommender")
 class RecommenderController @Autowired constructor(
         val recommenderService: RecommenderService,
         val authService: AuthService,

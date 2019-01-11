@@ -2,22 +2,24 @@ package favmovie.movie.controller
 
 import exception.NotFoundException
 import favmovie.movie.model.Movie
+import favmovie.movie.model.MovieFiltered
+import favmovie.movie.model.genre.Genre
+import favmovie.movie.repository.GenreDictRepository
 import favmovie.movie.repository.MovieRepository
+import model.api.recommender.ApiSimpleRatingModel
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.query.Criteria
 import org.springframework.data.mongodb.core.query.Query
 import org.springframework.web.bind.annotation.*
 import util.unwrap
-import java.time.Instant
-import java.time.LocalDateTime
-import java.time.temporal.TemporalField
 
 @RestController
 @RequestMapping("/")
 class MovieController @Autowired constructor(
         val movieRepository: MovieRepository,
-        val mongoTemplate: MongoTemplate
+        val mongoTemplate: MongoTemplate,
+        val genreDictRepository: GenreDictRepository
 ) {
 
     @GetMapping("movies")
@@ -29,15 +31,19 @@ class MovieController @Autowired constructor(
     @GetMapping("movies/filter")
     fun getMovie(@RequestParam("years") years: List<String>?,
                  @RequestParam("genres") genres: List<Int>?,
-                 @RequestParam("popularity") popularity: Boolean?)
-            : List<Movie> {
-        return getFilteredMovies(years, genres, popularity)
+                 @RequestParam("popularity") popularity: Boolean?,
+                 @RequestParam("pageNumber") pageNumber: Int,
+                 @RequestParam("pageSize") pageSize: Int)
+            : MovieFiltered {
+        return getFilteredMovies(years, genres, popularity, pageNumber, pageSize)
     }
 
     private fun getFilteredMovies(years: List<String>?,
                                   genres: List<Int>?,
-                                  popular: Boolean?
-    ): List<Movie> {
+                                  popular: Boolean?,
+                                  pageNumber: Int,
+                                  pageSize: Int
+    ): MovieFiltered {
         val yearCriteria = if(years != null) {
             Criteria.where("releaseYear").`in`(years)
         } else {
@@ -53,24 +59,59 @@ class MovieController @Autowired constructor(
         } else {
             Criteria()
         }
-
-        return mongoTemplate.find(
-                Query(Criteria().andOperator(
-                        yearCriteria,
-                        genreCriteria,
-                        popularCriteria
-                )
-                ),
+        val criteria = Criteria().andOperator(
+                yearCriteria,
+                genreCriteria,
+                popularCriteria
+        )
+        val movies =  mongoTemplate.find(
+                Query(criteria).skip((pageNumber*pageSize).toLong())
+                        .limit(pageSize),
                 Movie::class.java
         )
+        val count = mongoTemplate.count(
+                Query(criteria),
+                Movie::class.java
+        )
+        return if(popular==true) {
+            MovieFiltered(movies.toList().sortedByDescending { it.popularity }, count)
+        }
+        else MovieFiltered(movies.toList(), count)
     }
 
     @GetMapping("movies/search")
-    fun getMovieByTitle(@RequestParam("title") title: String
-    ): List<Movie> {
-        return mongoTemplate.find(
-                Query(Criteria.where("title").regex(title, "i")),
+    fun getMovieByTitle(@RequestParam("title") title: String,
+                        @RequestParam("pageNumber") pageNumber: Int,
+                        @RequestParam("pageSize") pageSize: Int
+    ): MovieFiltered {
+        val criteria = Criteria.where("title").regex(title, "i")
+        val skip = pageNumber*pageSize
+        val movies = mongoTemplate.find(
+                Query(criteria)
+                        .skip((skip).toLong()).limit(pageSize),
                 Movie::class.java
         )
+        val count = mongoTemplate.count(Query(criteria), Movie::class.java)
+        return MovieFiltered(movies.toList(), count)
     }
+
+    @GetMapping("movies/genres")
+    fun getGenres(): List<Genre> {
+        return genreDictRepository.findAll()
+    }
+
+    @PostMapping("movies/bestRating")
+    fun getMovieByRating(@RequestBody ratings: List<ApiSimpleRatingModel>,
+                         @RequestParam("pageNumber") pageNumber: Int,
+                         @RequestParam("pageSize") pageSize: Int
+    ): MovieFiltered? {
+        if(ratings.size>=pageNumber*pageSize+pageSize) {
+            val response = movieRepository.findAllById(ratings.map { it.itemId }.subList(pageNumber * pageSize, pageNumber * pageSize + pageSize))
+            return MovieFiltered(response.toList(), ratings.size.toLong())
+        } else {
+            val response = movieRepository.findAllById(ratings.map { it.itemId }.takeLast(pageSize))
+            return MovieFiltered(response.toList(), ratings.size.toLong())
+        }
+    }
+
 }

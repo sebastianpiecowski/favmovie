@@ -1,6 +1,7 @@
 package favmovie.gateway.apiconfig.api
 
 import model.api.recommender.ApiRatingModel
+import model.api.recommender.ApiSimpleRatingModel
 import model.command.recommendation.SetRatingInternalCommand
 import retrofit2.Call
 import retrofit2.http.*
@@ -18,7 +19,7 @@ interface RecommenderService {
             @Body setRatingInternal: SetRatingInternalCommand
     ): Call<String>
 
-    @DELETE("recommendation/rating/movie={movieId}&user={userId}")
+    @DELETE("recommendation/rating/user={userId}/movie={movieId}")
     fun deleteRating(
             @Path("movieId") movieId: String,
             @Path("userId") userId: String
@@ -33,4 +34,7 @@ interface RecommenderService {
     fun getItemRatings(
             @Path("movieId") movieId: String
     ): Call<List<ApiRatingModel>>
+
+    @GET("ratings")
+    fun getRatings(): Call<List<ApiSimpleRatingModel>>
 }

@@ -15,8 +15,8 @@ data class ApiMovieModel @JsonCreator constructor(
         val releaseYear: String?,
         @JsonProperty("genres")
         val genres: List<ApiGenresModel>,
-        @JsonProperty("posterUrl")
-        val posterUrl: String?,
+        @JsonProperty("posterPath")
+        val posterPath: String?,
         @JsonProperty("adult")
         val adult: Boolean?,
         @JsonProperty("originalTitle")
@@ -28,6 +28,8 @@ data class ApiMovieModel @JsonCreator constructor(
         @JsonProperty("productionCompanies")
         val productionCompanies: List<ApiProductionCompanyModel>?,
         @JsonProperty("productionCountries")
-        val productionCountries: List<ApiProductionCountryModel>?
+        val productionCountries: List<ApiProductionCountryModel>?,
+        @JsonProperty("rating")
+        var rating: Double?
 
 )

@@ -17,7 +17,7 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
         http.cors()
                 .and()
                 .csrf()
-                .ignoringAntMatchers("/command/**")
+                .ignoringAntMatchers("**")
                 .and()
                 .authorizeRequests()
                 .anyRequest().permitAll()

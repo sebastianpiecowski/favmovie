@@ -3,7 +3,7 @@ package model.command.recommendation
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class SetRatingInternalCommand @JsonCreator constructor(
+data class  SetRatingInternalCommand @JsonCreator constructor(
         @JsonProperty("userId")
         val userId: String,
         @JsonProperty("movieId")
@@ -18,7 +18,7 @@ data class SetRatingInternalCommand @JsonCreator constructor(
                     return SetRatingInternalCommand(
                             userId,
                             ratingCommand.itemId,
-                            (ratingCommand.rating-3)/2
+                            ratingCommand.rating
                     )
             }
         }
